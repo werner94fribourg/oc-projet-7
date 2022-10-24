@@ -1,0 +1,16 @@
+@import "./abstracts/variables";
+/*
+Add a new additional element into an existing map => example creating a color map and merging it with the initial existing color themes
+// Create your own map
+$custom-colors: (
+  "custom-color": #900,
+);
+
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+*/
+@import "../../../node_modules/bootstrap/scss/bootstrap";
