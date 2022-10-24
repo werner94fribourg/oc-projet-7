@@ -1,0 +1,41 @@
+.card {
+  width: 23.75rem;
+  height: 22.75rem;
+  padding: 0;
+  background-color: $custom-grey;
+  font-size: 1.125rem;
+  &-img-top {
+    width: 100%;
+    height: 11.125rem;
+    background-color: $custom-dark;
+  }
+  &-description {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-weight: bold;
+    svg {
+      transform: scale(0.65);
+    }
+  }
+  &-list {
+    font-size: 0.75rem;
+    line-height: 0.9rem;
+    list-style: none;
+  }
+  &-text {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    text-align: justify;
+  }
+  &-body {
+    padding-top: 0.5rem;
+    .first-row {
+      align-items: center;
+    }
+  }
+  .row > * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

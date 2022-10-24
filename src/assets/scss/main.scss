@@ -1,4 +1,17 @@
+@import "bootstrap/bootstrap";
+@import "./abstracts/mixins";
 @import "./abstracts/variables";
+@import "./base/base";
+@import "./components/alert";
+@import "./components/card";
+@import "./components/dropdown";
+@import "./components/logo";
+@import "./components/form_control";
+@import "./components/search_form";
+@import "./layout/container";
+@import "./layout/row";
+@import "./page/index";
+
 /*
 Add a new additional element into an existing map => example creating a color map and merging it with the initial existing color themes
 // Create your own map
@@ -6,11 +19,10 @@ $custom-colors: (
   "custom-color": #900,
 );
 
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/variables";
-@import "../../../node_modules/bootstrap/scss/mixins";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
 
 // Merge the maps
 $theme-colors: map-merge($theme-colors, $custom-colors);
 */
-@import "../../../node_modules/bootstrap/scss/bootstrap";
