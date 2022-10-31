@@ -1,0 +1,19 @@
+.btn-group {
+  .btn {
+    color: $white;
+    text-align: left;
+  }
+}
+
+.dropdown-toggle {
+  &::after {
+    border: 0;
+  }
+  svg {
+    transform: scale(1.5);
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    right: 5%;
+  }
+}

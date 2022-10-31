@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="<%=assetsPath%>//img/favicon.ico"
+    />
+    <link rel="stylesheet" href="<%=assetsPath%>/css/styles.css" />
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
@@ -11,79 +17,294 @@
       crossorigin="anonymous"
     ></script>
     <script defer type="module" src="<%=assetsPath%>/js/main.js"></script>
-    <link rel="stylesheet" href="<%=assetsPath%>/css/styles.css" />
     <title><%=title%></title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+    <div class="container d-flex flex-column justify-content-center">
+      <img
+        class="logo"
+        src="<%=assetsPath%>/img/logo.png"
+        alt="Les petits plats"
+      />
+      <form class="search-form">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Rechercher une recette"
+          aria-label="Rechercher une recette"
+        />
+        <div class="form-control-search"></div>
+      </form>
+      <div class="row alert-row">
+        <div
+          class="alert alert-primary alert-dismissible fade show"
+          role="alert"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          Coco
+          <button
+            type="button"
+            class="btn-close border border-white rounded-circle"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          Four
+          <button
+            type="button"
+            class="btn-close border border-white rounded-circle"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          Couteau
+          <button
+            type="button"
+            class="btn-close border border-white rounded-circle"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
         </div>
       </div>
-    </nav>
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-danger">Danger</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-light">Light</button>
-    <button type="button" class="btn btn-dark">Dark</button>
-    <button type="button" class="btn btn-custom-color">Custom</button>
-
-    <button type="button" class="btn btn-link">Link</button>
+      <div class="row categories-row">
+        <div class="btn-group">
+          <button
+            class="btn btn-primary btn-lg dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Ingrédients
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="white"
+              class="bi bi-chevron-down"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+          </button>
+          <div class="dropdown-menu">...</div>
+        </div>
+        <div class="btn-group">
+          <button
+            class="btn btn-success btn-lg dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Appareils
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="white"
+              class="bi bi-chevron-down"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+          </button>
+          <div class="dropdown-menu">...</div>
+        </div>
+        <div class="btn-group">
+          <button
+            class="btn btn-danger btn-lg dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Ustensiles
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="white"
+              class="bi bi-chevron-down"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+              />
+            </svg>
+          </button>
+          <div class="dropdown-menu">...</div>
+        </div>
+      </div>
+      <div class="row menu-list">
+        <div class="card">
+          <div class="card-img-top"></div>
+          <!--<img src="<%=assetsPath%>/" class="card-img-top" alt="..." />-->
+          <div class="card-body">
+            <div class="row first-row">
+              <h5 class="card-title col">Limonade de Coco</h5>
+              <p class="card-description col-4">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                >
+                  <title>clock</title>
+                  <path
+                    d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"
+                  ></path></svg
+                >10 min
+              </p>
+            </div>
+            <div class="row">
+              <ul class="card-list col">
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Lait de Coco: </span
+                  ><span class="card-list-quantity">400ml</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Jus de Citron: </span
+                  ><span class="card-list-quantity">2</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Crême de coco: </span
+                  ><span class="card-list-quantity">4 cuillères</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Sucre: </span
+                  ><span class="card-list-quantity">20g</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Glaçons: </span
+                  ><span class="card-list-quantity">2</span>
+                </li>
+              </ul>
+              <p class="card-text col">
+                Mettre les glaçons à votre goût dans le blender, ajouter le
+                lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer
+                jusqu'à avoir la consistence désirée.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-top"></div>
+          <!--<img src="<%=assetsPath%>/" class="card-img-top" alt="..." />-->
+          <div class="card-body">
+            <div class="row first-row">
+              <h5 class="card-title col">Limonade de Coco</h5>
+              <p class="card-description col-4">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                >
+                  <title>clock</title>
+                  <path
+                    d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"
+                  ></path></svg
+                >10 min
+              </p>
+            </div>
+            <div class="row">
+              <ul class="card-list col">
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Lait de Coco: </span
+                  ><span class="card-list-quantity">400ml</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Jus de Citron: </span
+                  ><span class="card-list-quantity">2</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Crême de coco: </span
+                  ><span class="card-list-quantity">4 cuillères</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Sucre: </span
+                  ><span class="card-list-quantity">20g</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Glaçons: </span
+                  ><span class="card-list-quantity">2</span>
+                </li>
+              </ul>
+              <p class="card-text col">
+                Mettre les glaçons à votre goût dans le blender, ajouter le
+                lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer
+                jusqu'à avoir la consistence désirée.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-top"></div>
+          <!--<img src="<%=assetsPath%>/" class="card-img-top" alt="..." />-->
+          <div class="card-body">
+            <div class="row first-row">
+              <h5 class="card-title col">Limonade de Coco</h5>
+              <p class="card-description col-4">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                >
+                  <title>clock</title>
+                  <path
+                    d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"
+                  ></path></svg
+                >10 min
+              </p>
+            </div>
+            <div class="row">
+              <ul class="card-list col">
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Lait de Coco: </span
+                  ><span class="card-list-quantity">400ml</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Jus de Citron: </span
+                  ><span class="card-list-quantity">2</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Crême de coco: </span
+                  ><span class="card-list-quantity">4 cuillères</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Sucre: </span
+                  ><span class="card-list-quantity">20g</span>
+                </li>
+                <li class="card-list-item">
+                  <span class="card-list-ingredient">Glaçons: </span
+                  ><span class="card-list-quantity">2</span>
+                </li>
+              </ul>
+              <p class="card-text col">
+                Mettre les glaçons à votre goût dans le blender, ajouter le
+                lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer
+                jusqu'à avoir la consistence désirée.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

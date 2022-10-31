@@ -1,0 +1,13 @@
+.row {
+  margin-right: 0;
+  margin-left: 0;
+  gap: 1rem;
+  .btn-group {
+    padding: 0;
+    max-width: 12rem;
+    .btn {
+      max-width: 10.625rem;
+      height: 4.3125rem;
+    }
+  }
+}

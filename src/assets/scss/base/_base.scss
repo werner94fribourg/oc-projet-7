@@ -1,0 +1,11 @@
+* {
+  box-sizing: inherit;
+  &::after,
+  &::before {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  font-size: 100%; // 1rem : 16px
+}

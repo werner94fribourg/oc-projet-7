@@ -1,0 +1,8 @@
+@mixin alert($name, $color) {
+  .alert-#{$name} {
+    color: $white;
+    background-color: $color;
+    border: var(--#{$prefix}alert-border);
+    max-width: 6.7rem;
+  }
+}
