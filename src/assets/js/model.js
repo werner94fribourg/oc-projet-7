@@ -49,33 +49,58 @@ const getRecipesList = () => {
 };
 
 /**
+ * In this branch, we developed the search algorithm using array methods and asynchronity in JavaScript
+ */
+
+/**
+ * Function used to remove all the duplicates of an array
+ * @param {Array} arr list of recipes we want to filter
+ * @returns {Array} the new sorted array with no duplicates
+ * @author Werner Schmid
+ */
+const sortAndFilterDoubles = async arr =>
+  arr
+    .filter((value, index, array) => array.indexOf(value) === index)
+    .sort((a, b) => (a.id < b.id ? -1 : 1));
+
+/**
+ * Function used to filter the recipes by their name or description
+ * @param {string} entry entry on which we want to filter the arrays by name and description
+ * @returns {Array} the new filtered recipes array with the ones matching the name and the description
+ */
+const getRecipesWithEntryNameOrDescription = async entry => {
+  return state.recipes.filter(
+    recipe => recipe.name.includes(entry) || recipe.description.includes(entry)
+  );
+};
+
+/**
+ * Function used to filter the recipes by their ingredient's names
+ * @param {string} entry entry on which we want to filter the arrays by their ingredient's names
+ * @returns {Array} the new filtered recipes array with at least one ingredient matching the entry
+ */
+const getRecipesWithIngredientName = async entry => {
+  return state.recipes.filter(recipe =>
+    recipe.ingredients.some(ingredient => ingredient.ingredient.includes(entry))
+  );
+};
+
+/**
  * Async function used to find the recipes matching a specific entry with an algorithm using the native loops
  * @param {string} entry the entry typed by the user
  * @returns {Promise} a Promise containing all recipes matching the entry if all the operations succeeded
  * @author Werner Schmid
  */
-const getRecipesWithNativeLoops = async entry => {
-  const matchedMainRecipes = [];
-  // Iterate over the recipes
-  const entryUpper = entry.toUpperCase();
-  for (const recipe of getRecipesList()) {
-    // Add the recipe if the name or the description contains the string passed as parameter
-    if (
-      recipe.name.toUpperCase().includes(entryUpper) ||
-      recipe.description.toUpperCase().includes(entryUpper)
-    ) {
-      matchedMainRecipes.push(recipe);
-      continue;
-    }
-    // Iterate over the ingredients and add the recipe if one of them contains the string passed as parameter
-    for (const ingredient of recipe.ingredients) {
-      if (ingredient.ingredient.toUpperCase().includes(entryUpper)) {
-        matchedMainRecipes.push(recipe);
-        break;
-      }
-    }
-  }
-  return matchedMainRecipes;
+const getRecipesWithArrayMethods = async entry => {
+  const [entryNameOrDescriptionRecipes, ingredientNameRecipes] =
+    await Promise.all([
+      getRecipesWithEntryNameOrDescription(entry),
+      getRecipesWithIngredientName(entry),
+    ]);
+  const finalArray = await sortAndFilterDoubles(
+    entryNameOrDescriptionRecipes.concat(ingredientNameRecipes)
+  );
+  return finalArray;
 };
 
 /**
@@ -190,7 +215,7 @@ const filterMainRecipeList = async () => {
  * @author Werner Schmid
  */
 export const getRecipesByMainEntry = async entry => {
-  const recipes = await getRecipesWithNativeLoops(entry);
+  const recipes = await getRecipesWithArrayMethods(entry);
 
   state.matchedMainRecipes = recipes;
   await filterMainRecipeList();
