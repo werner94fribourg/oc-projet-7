@@ -54,28 +54,15 @@ const getRecipesList = () => {
  * @returns {Promise} a Promise containing all recipes matching the entry if all the operations succeeded
  * @author Werner Schmid
  */
-const getRecipesWithNativeLoops = async entry => {
-  const matchedMainRecipes = [];
-  // Iterate over the recipes
-  const entryUpper = entry.toUpperCase();
-  for (const recipe of getRecipesList()) {
-    // Add the recipe if the name or the description contains the string passed as parameter
-    if (
-      recipe.name.toUpperCase().includes(entryUpper) ||
-      recipe.description.toUpperCase().includes(entryUpper)
-    ) {
-      matchedMainRecipes.push(recipe);
-      continue;
-    }
-    // Iterate over the ingredients and add the recipe if one of them contains the string passed as parameter
-    for (const ingredient of recipe.ingredients) {
-      if (ingredient.ingredient.toUpperCase().includes(entryUpper)) {
-        matchedMainRecipes.push(recipe);
-        break;
-      }
-    }
-  }
-  return matchedMainRecipes;
+const getRecipesWithArrayMethods = async entry => {
+  return getRecipesList().filter(
+    recipe =>
+      recipe.name.includes(entry) ||
+      recipe.description.includes(entry) ||
+      recipe.ingredients.some(ingredient =>
+        ingredient.ingredient.includes(entry)
+      )
+  );
 };
 
 /**
@@ -190,7 +177,7 @@ const filterMainRecipeList = async () => {
  * @author Werner Schmid
  */
 export const getRecipesByMainEntry = async entry => {
-  const recipes = await getRecipesWithNativeLoops(entry);
+  const recipes = await getRecipesWithArrayMethods(entry);
 
   state.matchedMainRecipes = recipes;
   await filterMainRecipeList();
