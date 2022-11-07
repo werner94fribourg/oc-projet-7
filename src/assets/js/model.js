@@ -69,7 +69,7 @@ const sortAndFilterDoubles = async arr =>
  * @returns {Array} the new filtered recipes array with the ones matching the name and the description
  */
 const getRecipesWithEntryNameOrDescription = async entry => {
-  return state.recipes.filter(
+  return getRecipesList().filter(
     recipe => recipe.name.includes(entry) || recipe.description.includes(entry)
   );
 };
@@ -80,7 +80,7 @@ const getRecipesWithEntryNameOrDescription = async entry => {
  * @returns {Array} the new filtered recipes array with at least one ingredient matching the entry
  */
 const getRecipesWithIngredientName = async entry => {
-  return state.recipes.filter(recipe =>
+  return getRecipesList().filter(recipe =>
     recipe.ingredients.some(ingredient => ingredient.ingredient.includes(entry))
   );
 };
