@@ -31,11 +31,12 @@
       />
       <form class="search-form">
         <input
-          class="form-control"
+          class="form-control search-form-input"
           type="search"
           placeholder="Rechercher une recette"
           aria-label="Rechercher une recette"
         />
+        <div class="invalid-feedback"></div>
         <div class="form-control-search"></div>
       </form>
       <div class="row alert-row">
@@ -150,164 +151,7 @@
           <div class="dropdown-menu">...</div>
         </div>
       </div>
-      <div class="row menu-list">
-        <div class="card">
-          <div class="card-img-top"></div>
-          <!--<img src="<%=assetsPath%>/" class="card-img-top" alt="..." />-->
-          <div class="card-body">
-            <div class="row first-row">
-              <h5 class="card-title col">Limonade de Coco</h5>
-              <p class="card-description col-4">
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                >
-                  <title>clock</title>
-                  <path
-                    d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"
-                  ></path></svg
-                >10 min
-              </p>
-            </div>
-            <div class="row">
-              <ul class="card-list col">
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Lait de Coco: </span
-                  ><span class="card-list-quantity">400ml</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Jus de Citron: </span
-                  ><span class="card-list-quantity">2</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Crême de coco: </span
-                  ><span class="card-list-quantity">4 cuillères</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Sucre: </span
-                  ><span class="card-list-quantity">20g</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Glaçons: </span
-                  ><span class="card-list-quantity">2</span>
-                </li>
-              </ul>
-              <p class="card-text col">
-                Mettre les glaçons à votre goût dans le blender, ajouter le
-                lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer
-                jusqu'à avoir la consistence désirée.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img-top"></div>
-          <!--<img src="<%=assetsPath%>/" class="card-img-top" alt="..." />-->
-          <div class="card-body">
-            <div class="row first-row">
-              <h5 class="card-title col">Limonade de Coco</h5>
-              <p class="card-description col-4">
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                >
-                  <title>clock</title>
-                  <path
-                    d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"
-                  ></path></svg
-                >10 min
-              </p>
-            </div>
-            <div class="row">
-              <ul class="card-list col">
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Lait de Coco: </span
-                  ><span class="card-list-quantity">400ml</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Jus de Citron: </span
-                  ><span class="card-list-quantity">2</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Crême de coco: </span
-                  ><span class="card-list-quantity">4 cuillères</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Sucre: </span
-                  ><span class="card-list-quantity">20g</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Glaçons: </span
-                  ><span class="card-list-quantity">2</span>
-                </li>
-              </ul>
-              <p class="card-text col">
-                Mettre les glaçons à votre goût dans le blender, ajouter le
-                lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer
-                jusqu'à avoir la consistence désirée.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-img-top"></div>
-          <!--<img src="<%=assetsPath%>/" class="card-img-top" alt="..." />-->
-          <div class="card-body">
-            <div class="row first-row">
-              <h5 class="card-title col">Limonade de Coco</h5>
-              <p class="card-description col-4">
-                <svg
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                >
-                  <title>clock</title>
-                  <path
-                    d="M20.586 23.414l-6.586-6.586v-8.828h4v7.172l5.414 5.414zM16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 28c-6.627 0-12-5.373-12-12s5.373-12 12-12c6.627 0 12 5.373 12 12s-5.373 12-12 12z"
-                  ></path></svg
-                >10 min
-              </p>
-            </div>
-            <div class="row">
-              <ul class="card-list col">
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Lait de Coco: </span
-                  ><span class="card-list-quantity">400ml</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Jus de Citron: </span
-                  ><span class="card-list-quantity">2</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Crême de coco: </span
-                  ><span class="card-list-quantity">4 cuillères</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Sucre: </span
-                  ><span class="card-list-quantity">20g</span>
-                </li>
-                <li class="card-list-item">
-                  <span class="card-list-ingredient">Glaçons: </span
-                  ><span class="card-list-quantity">2</span>
-                </li>
-              </ul>
-              <p class="card-text col">
-                Mettre les glaçons à votre goût dans le blender, ajouter le
-                lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer
-                jusqu'à avoir la consistence désirée.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="row menu-list"></div>
     </div>
   </body>
 </html>

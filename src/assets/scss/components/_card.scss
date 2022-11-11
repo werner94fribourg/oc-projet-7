@@ -27,6 +27,12 @@
     font-size: 0.75rem;
     line-height: 0.75rem;
     text-align: justify;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    max-height: 5.1875rem;
   }
   &-body {
     padding-top: 0.5rem;
