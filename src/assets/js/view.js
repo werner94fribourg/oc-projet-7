@@ -1,3 +1,9 @@
+const alertColors = {
+  ingredient: 'primary',
+  appliance: 'success',
+  ustensil: 'danger',
+};
+
 export const addHandlerSubmitSearchForm = handler => {
   document.querySelector('.search-form').addEventListener('submit', event => {
     event.preventDefault();
@@ -5,10 +11,66 @@ export const addHandlerSubmitSearchForm = handler => {
   });
 };
 
+export const addHandlerMainFieldSearch = handler => {
+  document.querySelector('.form-control').addEventListener('keyup', event => {
+    handler(event.target);
+  });
+};
+
 export const addHandlerSearchFormTextInput = handler => {
   document
     .querySelector('.search-form-input')
     .addEventListener('input', event => {
+      handler(event.target);
+    });
+};
+
+export const addHandlerDropdownClick = handler => {
+  document.querySelectorAll('.dropdown-toggle').forEach(input => {
+    input.addEventListener('click', event => {
+      event.preventDefault();
+      handler(event.target);
+    });
+  });
+};
+
+export const addHandlerOutsideDropdownClick = handler => {
+  window.addEventListener('click', event => {
+    handler(event.target);
+  });
+};
+
+export const addHandlerSubmitDropdownForm = handler => {
+  document.querySelectorAll('.dropdown-form').forEach(input => {
+    input.addEventListener('submit', event => {
+      event.preventDefault();
+      handler(event.target.querySelector('.dropdown-search'));
+    });
+  });
+};
+
+export const addHandlerDropdownSearch = handler => {
+  document.querySelectorAll('.dropdown-search').forEach(input => {
+    input.addEventListener('keyup', event => {
+      handler(event.target);
+    });
+  });
+};
+
+export const addHandlerDropdownItemClick = handler => {
+  document.querySelectorAll('.dropdown-item').forEach(input => {
+    input.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      handler(event.target);
+    });
+  });
+};
+
+export const addHandlerCloseAlert = (handler, type, value) => {
+  document
+    .querySelector(`.alert[data-${type}="${value}"] .btn-close`)
+    .addEventListener('click', event => {
       handler(event.target);
     });
 };
@@ -66,4 +128,27 @@ export const renderRecipeList = data => {
     )
     .join('\n');
   document.querySelector('.menu-list').innerHTML = markup;
+};
+
+export const renderSubSearchList = (type, data) => {
+  const markup = data
+    .map(
+      item => `
+      <a class="dropdown-item" href="#" data-key="${type}" data-${type}="${item}">${item}</a>
+    `
+    )
+    .join('\n');
+  document.querySelector(`.${type}-dropdown .dropdown-list`).innerHTML = markup;
+};
+
+export const renderAlert = (type, value) => {
+  if (document.querySelector(`.alert[data-${type}="${value}"]`) !== null)
+    return;
+  const markup = `
+  <div class="alert alert-${alertColors[type]} alert-dismissible fade show" role="alert" data-key="${type}" data-${type}="${value}">
+    ${value}
+    <button type="button" class="btn-close border border-white rounded-circle" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  `;
+  document.querySelector('.alert-row').insertAdjacentHTML('beforeend', markup);
 };

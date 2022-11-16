@@ -2742,7 +2742,7 @@ textarea.form-control-lg {
   --bs-btn-hover-border-color: transparent;
   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
   --bs-btn-disabled-opacity: 0.65;
-  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), 0.5);
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
   font-family: var(--bs-btn-font-family);
@@ -2766,9 +2766,10 @@ textarea.form-control-lg {
   }
 }
 .btn:hover {
-  color: var(--bs-btn-hover-color);
+  /*color: var(--bs-btn-hover-color);
+  text-decoration: if($link-hover-decoration == underline, none, null);
   background-color: var(--bs-btn-hover-bg);
-  border-color: var(--bs-btn-hover-border-color);
+  border-color: var(--bs-btn-hover-border-color);*/
 }
 .btn-check + .btn:hover {
   color: var(--bs-btn-color);
@@ -2788,8 +2789,10 @@ textarea.form-control-lg {
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
 .btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show {
-  color: var(--bs-btn-active-color);
+  /*color: var(--bs-btn-active-color);
   background-color: var(--bs-btn-active-bg);
+  // Remove CSS gradients if they're enabled
+  background-image: if($enable-gradients, none, null);*/
   border-color: var(--bs-btn-active-border-color);
 }
 .btn-check:checked + .btn:focus-visible, :not(.btn-check) + .btn:active:focus-visible, .btn:first-child:active:focus-visible, .btn.active:focus-visible, .btn.show:focus-visible {
@@ -10844,6 +10847,11 @@ html {
   max-width: 6.7rem;
 }
 
+.alert-dismissible {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .alert-dismissible .btn-close {
   color: #fff;
   background: transparent url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>") center/1em auto no-repeat;
@@ -10853,7 +10861,7 @@ html {
   padding: 1rem 0.8rem;
   top: 50%;
   transform: scale(0.8) translateY(-65%);
-  right: 13%;
+  right: 0.5rem;
   border-width: 0.25rem !important;
 }
 
@@ -10905,20 +10913,88 @@ html {
   padding-right: 0;
 }
 
-.btn-group .btn {
+.btn-group {
   color: #fff;
+}
+.btn-group .btn {
   text-align: left;
+  color: inherit;
 }
-
-.dropdown-toggle::after {
-  border: 0;
-}
-.dropdown-toggle svg {
+.btn-group svg {
   transform: scale(1.5);
   display: inline-block;
   position: absolute;
   top: 45%;
   right: 5%;
+  z-index: 100;
+}
+
+.dropdown-toggle {
+  width: 100%;
+}
+.dropdown-toggle::after {
+  border: 0;
+}
+.dropdown-toggle.show ~ svg {
+  transform: scale(1.5) rotate(180deg) translateX(5px) translateY(5px);
+}
+
+.dropdown-menu {
+  max-width: calc(100% - 2px);
+  width: calc(100% - 2px);
+  color: inherit;
+  z-index: 1;
+  overflow: hidden;
+}
+.dropdown-menu .dropdown-search {
+  height: 4.3125rem;
+  width: 80%;
+  margin-left: 1.375rem;
+  border: none;
+  color: inherit;
+}
+.dropdown-menu .dropdown-search:focus {
+  outline: none;
+}
+.dropdown-menu .dropdown-search::placeholder {
+  color: inherit;
+  opacity: 0.6;
+}
+.dropdown-menu .dropdown-form-submit {
+  visibility: hidden;
+}
+.dropdown-menu .dropdown-item {
+  color: inherit;
+  padding-left: 1.375rem;
+}
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:active {
+  color: yellow;
+  background-color: inherit;
+}
+.dropdown-menu .dropdown-list {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.dropdown-menu.ingredient-dropdown {
+  background-color: #3282f7;
+  border-color: #3282f7;
+}
+.dropdown-menu.ingredient-dropdown .dropdown-search {
+  background-color: #3282f7;
+}
+.dropdown-menu.appliance-dropdown {
+  background-color: #68d9a4;
+  border-color: #68d9a4;
+}
+.dropdown-menu.appliance-dropdown .dropdown-search {
+  background-color: #68d9a4;
+}
+.dropdown-menu.ustensil-dropdown {
+  background-color: #ed6454;
+  border-color: #ed6454;
+}
+.dropdown-menu.ustensil-dropdown .dropdown-search {
+  background-color: #ed6454;
 }
 
 .logo {
@@ -10930,7 +11006,7 @@ html {
 
 .form-control {
   height: 4.3125rem;
-  padding: 0;
+  padding: 0 0 0 1.5rem;
 }
 .form-control::placeholder {
   color: #000;
@@ -10972,7 +11048,6 @@ html {
   max-width: 12rem;
 }
 .row .btn-group .btn {
-  max-width: 10.625rem;
   height: 4.3125rem;
 }
 
@@ -10983,14 +11058,14 @@ html {
 
 .alert-row {
   margin-bottom: 0.9375rem;
+  flex-flow: nowrap;
 }
 
 .categories-row {
   margin-bottom: 1.5625rem;
   gap: 1.25rem;
-}
-
-/*
+  flex-flow: nowrap;
+} /*
 Add a new additional element into an existing map => example creating a color map and merging it with the initial existing color themes
 // Create your own map
 $custom-colors: (

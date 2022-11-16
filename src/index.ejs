@@ -39,44 +39,7 @@
         <div class="invalid-feedback"></div>
         <div class="form-control-search"></div>
       </form>
-      <div class="row alert-row">
-        <div
-          class="alert alert-primary alert-dismissible fade show"
-          role="alert"
-        >
-          Coco
-          <button
-            type="button"
-            class="btn-close border border-white rounded-circle"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div
-          class="alert alert-success alert-dismissible fade show"
-          role="alert"
-        >
-          Four
-          <button
-            type="button"
-            class="btn-close border border-white rounded-circle"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div
-          class="alert alert-danger alert-dismissible fade show"
-          role="alert"
-        >
-          Couteau
-          <button
-            type="button"
-            class="btn-close border border-white rounded-circle"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
-      </div>
+      <div class="row alert-row"></div>
       <div class="row categories-row">
         <div class="btn-group">
           <button
@@ -86,21 +49,32 @@
             aria-expanded="false"
           >
             Ingrédients
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="white"
-              class="bi bi-chevron-down"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-              />
-            </svg>
           </button>
-          <div class="dropdown-menu">...</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="white"
+            class="bi bi-chevron-down"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
+          <div class="dropdown-menu ingredient-dropdown">
+            <form class="dropdown-form">
+              <input
+                type="text"
+                class="dropdown-search"
+                placeholder="Rechercher un ingrédient"
+                data-key="ingredient"
+              />
+              <button class="dropdown-form-submit" type="submit"></button>
+            </form>
+            <div class="dropdown-list" data-key="ingredient"></div>
+          </div>
         </div>
         <div class="btn-group">
           <button
@@ -110,21 +84,32 @@
             aria-expanded="false"
           >
             Appareils
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="white"
-              class="bi bi-chevron-down"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-              />
-            </svg>
           </button>
-          <div class="dropdown-menu">...</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="white"
+            class="bi bi-chevron-down"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
+          <div class="dropdown-menu appliance-dropdown">
+            <form class="dropdown-form">
+              <input
+                type="text"
+                class="dropdown-search"
+                placeholder="Rechercher un appareil"
+                data-key="appliance"
+              />
+              <button class="dropdown-form-submit" type="submit"></button>
+            </form>
+            <div class="dropdown-list" data-key="appliance"></div>
+          </div>
         </div>
         <div class="btn-group">
           <button
@@ -134,21 +119,32 @@
             aria-expanded="false"
           >
             Ustensiles
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="white"
-              class="bi bi-chevron-down"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-              />
-            </svg>
           </button>
-          <div class="dropdown-menu">...</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="white"
+            class="bi bi-chevron-down"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
+          <div class="dropdown-menu ustensil-dropdown">
+            <form class="dropdown-form">
+              <input
+                type="text"
+                class="dropdown-search"
+                placeholder="Rechercher un ustensile"
+                data-key="ustensil"
+              />
+              <button class="dropdown-form-submit" type="submit"></button>
+            </form>
+            <div class="dropdown-list" data-key="ustensil"></div>
+          </div>
         </div>
       </div>
       <div class="row menu-list"></div>

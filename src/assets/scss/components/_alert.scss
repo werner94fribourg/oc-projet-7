@@ -2,16 +2,19 @@
   max-width: 6.7rem;
 }
 
-@include alert("primary", $primary);
-@include alert("secondary", $secondary);
-@include alert("success", $success);
-@include alert("info", $info);
-@include alert("warning", $warning);
-@include alert("danger", $danger);
-@include alert("light", $light);
-@include alert("dark", $dark);
+@include alert('primary', $primary);
+@include alert('secondary', $secondary);
+@include alert('success', $success);
+@include alert('info', $info);
+@include alert('warning', $warning);
+@include alert('danger', $danger);
+@include alert('light', $light);
+@include alert('dark', $dark);
 
 .alert-dismissible {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   .btn-close {
     color: $white;
     background: transparent
@@ -23,7 +26,7 @@
     padding: 1rem 0.8rem;
     top: 50%;
     transform: scale(0.8) translateY(-65%);
-    right: 13%;
+    right: 0.5rem;
     border-width: 0.25rem !important;
   }
 }

@@ -1,13 +1,8 @@
 .btn-group {
+  color: $white;
   .btn {
-    color: $white;
     text-align: left;
-  }
-}
-
-.dropdown-toggle {
-  &::after {
-    border: 0;
+    color: inherit;
   }
   svg {
     transform: scale(1.5);
@@ -15,5 +10,77 @@
     position: absolute;
     top: 45%;
     right: 5%;
+    z-index: 100;
+  }
+}
+
+.dropdown-toggle {
+  width: 100%;
+  &::after {
+    border: 0;
+  }
+  &.show {
+    ~ svg {
+      transform: scale(1.5) rotate(180deg) translateX(5px) translateY(5px);
+    }
+  }
+}
+
+.dropdown-menu {
+  max-width: calc(100% - 2px);
+  width: calc(100% - 2px);
+  color: inherit;
+  z-index: 1;
+  overflow: hidden;
+  .dropdown-search {
+    height: 4.3125rem;
+    width: 80%;
+    margin-left: 1.375rem;
+    border: none;
+    color: inherit;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: inherit;
+      opacity: 0.6;
+    }
+  }
+  .dropdown-form-submit {
+    visibility: hidden;
+  }
+  .dropdown-item {
+    color: inherit;
+    padding-left: 1.375rem;
+    &:hover,
+    &:active {
+      color: yellow;
+      background-color: inherit;
+    }
+  }
+  .dropdown-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  &.ingredient-dropdown {
+    background-color: $primary;
+    border-color: $primary;
+    .dropdown-search {
+      background-color: $primary;
+    }
+  }
+  &.appliance-dropdown {
+    background-color: $success;
+    border-color: $success;
+    .dropdown-search {
+      background-color: $success;
+    }
+  }
+  &.ustensil-dropdown {
+    background-color: $danger;
+    border-color: $danger;
+    .dropdown-search {
+      background-color: $danger;
+    }
   }
 }

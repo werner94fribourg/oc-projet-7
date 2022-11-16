@@ -5,9 +5,11 @@
 
 .alert-row {
   margin-bottom: 0.9375rem;
+  flex-flow: nowrap;
 }
 
 .categories-row {
   margin-bottom: 1.5625rem;
   gap: 1.25rem;
+  flex-flow: nowrap;
 }
