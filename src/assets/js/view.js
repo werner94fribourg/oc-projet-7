@@ -1,9 +1,22 @@
+/**
+ * @param {Object} alertColors object used to store all alert color classes of the tags related to the type of it
+ * @param {string} alertColors.ingredient alert color class related to the ingredients
+ * @param {string} alertColors.appliance alert color class related to the appliances
+ * @param {string} alertColors.ustensil alert color class related to the ustensils
+ * @author Werner Schmid
+ */
 const alertColors = {
   ingredient: 'primary',
   appliance: 'success',
   ustensil: 'danger',
 };
 
+/**
+ * Function used to add an event listener when the user is submitting the main search form
+ * @param {Function} handler handler function that will be called when the event is triggered
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const addHandlerSubmitSearchForm = handler => {
   document.querySelector('.search-form').addEventListener('submit', event => {
     event.preventDefault();
@@ -11,12 +24,12 @@ export const addHandlerSubmitSearchForm = handler => {
   });
 };
 
-export const addHandlerMainFieldSearch = handler => {
-  document.querySelector('.form-control').addEventListener('keyup', event => {
-    handler(event.target);
-  });
-};
-
+/**
+ * Function used to add an event listener when the user is typing in the main search input
+ * @param {Function} handler handler function that will be called when the event is triggered
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const addHandlerSearchFormTextInput = handler => {
   document
     .querySelector('.search-form-input')
@@ -25,6 +38,12 @@ export const addHandlerSearchFormTextInput = handler => {
     });
 };
 
+/**
+ * Function used to add an event listener when the user is clicking one of the subsearching buttons
+ * @param {Function} handler handler function that will be called when the event is triggered
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const addHandlerDropdownClick = handler => {
   document.querySelectorAll('.dropdown-toggle').forEach(input => {
     input.addEventListener('click', event => {
@@ -34,12 +53,24 @@ export const addHandlerDropdownClick = handler => {
   });
 };
 
+/**
+ * Function used to add an event listener when the user is clicking outside the active subsearching button
+ * @param {Function} handler handler function that will be called when the event is triggered
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const addHandlerOutsideDropdownClick = handler => {
   window.addEventListener('click', event => {
     handler(event.target);
   });
 };
 
+/**
+ * Function used to add an event listener when the user is submitting one of the subsearching forms
+ * @param {Function} handler handler function that will be called when the event is triggered
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const addHandlerSubmitDropdownForm = handler => {
   document.querySelectorAll('.dropdown-form').forEach(input => {
     input.addEventListener('submit', event => {
@@ -49,6 +80,12 @@ export const addHandlerSubmitDropdownForm = handler => {
   });
 };
 
+/**
+ * Function used to add an event listener when the user is typing in the input of one of the subsearching forms
+ * @param {Function} handler handler function that will be called when the event is triggered
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const addHandlerDropdownSearch = handler => {
   document.querySelectorAll('.dropdown-search').forEach(input => {
     input.addEventListener('keyup', event => {
@@ -57,6 +94,12 @@ export const addHandlerDropdownSearch = handler => {
   });
 };
 
+/**
+ * Function used to add an event listener when the user clicks one of the specific tags
+ * @param {Function} handler handler function that will be called when the event is triggered
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const addHandlerDropdownItemClick = handler => {
   document.querySelectorAll('.dropdown-item').forEach(input => {
     input.addEventListener('click', event => {
@@ -67,6 +110,14 @@ export const addHandlerDropdownItemClick = handler => {
   });
 };
 
+/**
+ * Function used to add an event listener when the user clicks the close button of one of the tags
+ * @param {Function} handler handler function that will be called when the event is triggered
+ * @param {string} type type of the tag on which we want to add the event handler
+ * @param {string} value value displayed of the tag on which we want to add the event handler
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const addHandlerCloseAlert = (handler, type, value) => {
   document
     .querySelector(`.alert[data-${type}="${value}"] .btn-close`)
@@ -75,10 +126,19 @@ export const addHandlerCloseAlert = (handler, type, value) => {
     });
 };
 
+/**
+ * Function used to render the list of recipes in the interface
+ * @param {Array} data array of recipes we want to display in the interface
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const renderRecipeList = data => {
-  const markup = data
-    .map(
-      recipe => `
+  const markup =
+    data.length === 0
+      ? `<p class="not-found-message">Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>`
+      : data
+          .map(
+            recipe => `
           <div class="card">
             <div class="card-img-top"></div>
             <!--<img src="/" class="card-img-top" alt="..." />-->
@@ -125,11 +185,18 @@ export const renderRecipeList = data => {
             </div>
           </div>
   `
-    )
-    .join('\n');
+          )
+          .join('\n');
   document.querySelector('.menu-list').innerHTML = markup;
 };
 
+/**
+ * Function used to render the list of tags (ingredients, appliances, ustensils) into its respective dropdown list
+ * @param {string} type type of the list of tags we want to display
+ * @param {Array} data array of tags (ingredients, appliances, ustensils) we want to display in the interface
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const renderSubSearchList = (type, data) => {
   const markup = data
     .map(
@@ -141,6 +208,13 @@ export const renderSubSearchList = (type, data) => {
   document.querySelector(`.${type}-dropdown .dropdown-list`).innerHTML = markup;
 };
 
+/**
+ * Function used to display a new alert tag into the page
+ * @param {string} type type of the new alert tag we want to display
+ * @param {string} value value of the tag we want to display
+ * @returns {undefined} no specific value returned
+ * @author Werner Schmid
+ */
 export const renderAlert = (type, value) => {
   if (document.querySelector(`.alert[data-${type}="${value}"]`) !== null)
     return;
