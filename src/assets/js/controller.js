@@ -32,6 +32,20 @@ const handleSearchFormTextInput = input => {
       input.innerHTML = '';
       input.style.removeProperty('grid-template-columns');
     });
+    model
+      .getRecipesByMainEntry('')
+      .then(() => {
+        view.renderRecipeList(model.state.matchedRecipes);
+        document.querySelectorAll('.dropdown-list').forEach(input => {
+          input.style.setProperty('grid-template-columns', 'repeat(3, 1fr)');
+        });
+        Object.entries(model.state.matchedSubSearch).forEach(entry => {
+          const [key, value] = entry;
+          view.renderSubSearchList(key, value);
+        });
+        view.addHandlerDropdownItemClick(handleDropdownItemClick);
+      })
+      .catch(err => console.error(err));
     return;
   }
   if (entry.length >= 3) {
@@ -214,7 +228,22 @@ const handleDropdownItemClick = link => {
  * @author Werner Schmid
  */
 const init = async () => {
-  await model.getAllRecipes();
+  await model.getAllRecipes().then(() => {
+    model
+      .getRecipesByMainEntry('')
+      .then(() => {
+        view.renderRecipeList(model.state.matchedRecipes);
+        document.querySelectorAll('.dropdown-list').forEach(input => {
+          input.style.setProperty('grid-template-columns', 'repeat(3, 1fr)');
+        });
+        Object.entries(model.state.matchedSubSearch).forEach(entry => {
+          const [key, value] = entry;
+          view.renderSubSearchList(key, value);
+        });
+        view.addHandlerDropdownItemClick(handleDropdownItemClick);
+      })
+      .catch(err => console.error(err));
+  });
   view.addHandlerSubmitSearchForm(handleSubmitSearchForm);
   view.addHandlerSearchFormTextInput(handleSearchFormTextInput);
   view.addHandlerDropdownClick(handleDropdownClick);
